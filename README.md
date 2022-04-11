@@ -52,7 +52,7 @@ cd client-react && npm install && npm start
 ```
 * To run backend application on port 8080, please type:
 ```
-cd server && npm install && npm run server
+cd server && npm install && npm run start
 ```
 
 I was able to add only FE tests, hence to run tests, please type: `cd client-react && npm test`
