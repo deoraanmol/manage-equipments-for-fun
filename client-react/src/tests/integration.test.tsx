@@ -59,7 +59,7 @@ it("admin screen should show equipments in the table", async () => {
   jest.spyOn(global, 'fetch').mockResolvedValue(MOCK_BOOKED_EQUIPMENTS_RESPONSE)
   await act(() => (render(<AdminScreen />, container)));
   // check if the response has been painted on DOM table correctly
-  const expectedEquipment = JSON.parse(MOCK_BOOKED_EQUIPMENTS_RESPONSE._bodyText)[0];
+  const expectedEquipment = JSON.parse((MOCK_BOOKED_EQUIPMENTS_RESPONSE as any)._bodyText)[0];
   // validate if table rows have been correctly displayed on DOM
   [expectedEquipment.id, expectedEquipment.serial_number, expectedEquipment.username, expectedEquipment.model].map(value => {
     expect(container?.textContent).toContain(`${value}`);
@@ -71,7 +71,7 @@ it("booking screen should show available equipments in the table", async () => {
   jest.spyOn(global, 'fetch').mockResolvedValue(MOCK_AVAILABLE_EQUIPMENTS_RESPONSE)
   await act(() => (render(<BookingScreen />, container)));
   // check if the response has been painted on DOM table correctly
-  const expectedEquipment = JSON.parse(MOCK_AVAILABLE_EQUIPMENTS_RESPONSE._bodyText)[0];
+  const expectedEquipment = JSON.parse((MOCK_AVAILABLE_EQUIPMENTS_RESPONSE as any)._bodyText)[0];
   // validate if table rows have been correctly displayed on DOM
   [expectedEquipment.id, expectedEquipment.serial_number, expectedEquipment.model].map(value => {
     expect(container?.textContent).toContain(`${value}`);
